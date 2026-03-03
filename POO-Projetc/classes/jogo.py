@@ -17,5 +17,13 @@ class Jogo:
             print(self.inimigo.exibir_detalhes())
 
             input('\nPressione Qualquer tecla para iniciar a batalha')
-            escolha = int(input('Escolha (1 - Ataque Normal, 2 - Ataque Especial)'))
+            escolha = int(input('Escolha (1 - Ataque Normal, 2 - Ataque Especial)\n'))
 
+            match escolha:
+                case 1: self.heroi.atacar(self.inimigo)
+                case _: print("Opção inválida. Escolha novamente")
+
+        if self.heroi.get_vida() > 0:
+            print("Parabéns, você venceu!")
+        else:
+            print("Você foi derrotado!")

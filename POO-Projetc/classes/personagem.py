@@ -15,3 +15,13 @@ class Personagem:
 
     def exibir_detalhes(self):
         return f"Nome: {self.__nome}\nVida: {self.__vida}\nNivel: {self.__nivel}"
+
+    def atacar(self, alvo):
+        dano = self.__nivel * 2
+        alvo.receber_dano(dano)
+        print(f'{self.get_nome()} atacou {alvo.get_nome()} e causou {dano} dano!')
+
+    def receber_dano(self, dano):
+        self.__vida -= dano
+        if self.__vida < 0:
+            self.__vida = 0
